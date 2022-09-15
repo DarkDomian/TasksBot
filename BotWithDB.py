@@ -2,7 +2,7 @@ import sqlite3
 import telebot
 from datetime import date
 
-bot = telebot.TeleBot("5217938630:AAEdkkqc4aGpedu4FRfvmnx9DKgiMIlMJfI")
+bot = telebot.TeleBot("token")
 
 conn = sqlite3.connect('db/database.db', check_same_thread=False)
 cursor = conn.cursor()
@@ -28,7 +28,9 @@ def add(message):
 
 @bot.message_handler(commands=["show"])
 def show(message):
-    if message.from_user.id in 
+    request = "SOMTHING ON SQL LANGUIDGE " + message.from_user.id + ""
+    cursor.execute(request)
+    conn.commit()
 
 @bot.message_handler(commands=["help"])
 def help(message):
